@@ -1,0 +1,126 @@
+<div class="content-header">
+    <div class="con-head-left">
+        <span class="hed-title">Söhbətlər</span>
+        <!--<span  class="head-total"> <span data-group-count></span>/<span data-student-count></span></span>-->
+    </div>
+    <div class="con-head-right">
+        <div class="prepend-icon">
+            <input data-i18n="placeholder.search" id="group_search" type="search" placeholder="Search">
+    
+        </div>
+
+        <div id="buttons_div" class="dropdown-func">
+            <div class="btn btn-default reg dropdown-toggle cog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                Ümumi əməliyyatlar
+            </div>
+            <ul id="module_operations" class="dropdown-menu calibrated">
+                <li><a id="registration" href="student_add.html">Item 1</a></li>
+                <li><a id="second-registration" href="#">Item 2</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="filters-block module_1000121">
+    <div class="form-group tree-modal-container ">
+        <form class="group-search-form">
+            <div class="btn-group">
+                <select class="form-control " id="chat_from_user" name="fromUser">
+
+                </select>
+            </div>
+            <div class="btn-group">
+                <select class="form-control " id="chat_to_user" name="toUser">
+
+                </select>
+            </div>
+            <div class="btn-group">
+                <select class="form-control " id="chat_status" name="statusId">
+
+                </select>
+            </div>
+            <div class="btn-group">
+                <input type="text" class="form-control datepicker" id="chat_send_date" name="sendDate" data-date-format="dd/mm/yyyy"/>
+            </div>
+
+
+        </form>
+    </div>
+
+</div>
+
+<!-- Bootstrap modal -->
+<div class="row"> 
+<div class="col-sm-12 data">
+    <div class="panel panel-white table-scroll">
+
+        <div class=" table-responsive">
+            <table id="conversation-list" class="table table-celled table-hover">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Kim</th>
+                        <th>Kimə</th>
+                        <th>Status</th>
+                        <th>Tarix</th>
+                        <!-- <th></th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+        <div class="space-for-footer">
+            <div id="load_more_div" class=" flex-input">
+                <button data-i18n="load.more" data-table="academic_groups" class="btn loading-margins btn-load-more">Daha çox yüklə</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-4 info">
+    <div class="panel panel-white">
+        <div class="panel-heading">
+            <h3 class="panel-title">Ətraflı</h3>
+            <div class="panel-close"><img src="assets/img/upd/close.svg" alt=""></div>
+            <div class="type_2_btns"></div>
+        </div>
+        <div class="panel-body">
+            <div class="col-xs-12 definition-list">
+                <dl class="dl-horizontal">
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--tree modal-->
+<div class="add-new">
+    <div class="search-scroll"></div>
+</div>
+<script src="assets/js/modal_drag.js"></script>
+<script src="assets/js/jquery-ui.js"></script>
+<script>
+    $(function () {
+        
+        $('.datepicker').datepicker();
+        $('body').find('.table-scroll').slimScroll();
+        Communication.i18n();
+
+        $('#main-div .sub_modules_div').remove();
+         $('.module-list').find('.sub-module-con').remove();
+       
+       var firstParams = $('.main-content-upd .group-search-form').serialize();
+       
+        Communication.Proxy.loadOperations(Communication.currModule, function (operations) {
+            $('#buttons_div').find('ul').html(Communication.Service.parseOperations(operations, 1));
+            Communication.Proxy.getAllConversationList();//todo
+        });
+    });
+
+
+</script>

@@ -1,0 +1,143 @@
+<div class="basic-info">
+    <div class="search-butons" style="margin: 0;">
+        <button data-i18n="close" class="close-student-search" placeholder="Bağla">Bağla</button>
+        <!--<a href="" data-i18n="close" class="close-message-search" placeholder="Bağla">Bağla</a>-->
+        <!--<button class="close-message-search" >Bağla</button>-->
+    </div>
+        <div class="col-md-12">
+        <div class=" ">
+            <div class=" ">
+                <h3 class="panel-title">Mesajlar</h3>
+            </div>
+            <div class="panel-body m-t-15" style="padding: 0">
+                <div class="row">
+                    <div class="col-md-12 chatBox">
+                        
+                        <div class="message-content">
+                            <ol class="chat">
+
+                                
+                            </ol>
+                        </div>
+                    </div >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="buttons-row col-md-12">
+    <div class="col-md-6">
+        <a data-i18n="ok" id="confirmShare" class="btn btn-block btn-success">Ok</a>
+    </div>
+    <div class="col-md-6">
+        <a data-i18n="cancel" class="btn btn-block btn-danger" href="index.html">İmtina et</a>
+    </div>
+</div> -->
+
+
+<script>
+
+    $(function () {
+
+        $('.datepicker').datepicker();
+        
+        Communication.i18n();
+        var id = $('#buttons_div').attr('data-id');
+        var userId = $('#buttons_div').attr('data-user-id');
+        
+        if (!$('#buttons_div').attr('data-id')) {
+                $.alert({
+                    title: Communication.dictionary[Communication.lang]['warning'],
+                    content: Communication.dictionary[Communication.lang]['select_information'],
+                    theme: 'material'
+                });
+                return false;
+        }
+        Communication.Proxy.getConversationMessage(id, function (data) {
+            if (data && data.data) {
+                    var html = '';
+                    var inboxUserId = 0;
+                    $.each(data.data, function (i, v) {
+                        if (v.outboxMessage.fromUser.id == userId) {
+                            if(!v.filePath) {
+                                html += '<li class="self">' +
+                                    '<div class="avatar"><img src="'+Communication.urls.AdminRest+ 'users/' + userId + '/image?token=' + Communication.token + '" draggable="false" alt="" class="img-circle" onError="this.src=\'./assets/img/user.svg\'"/></div>' +
+                                    '<div class="msg">' +
+                                    '<small>' + Communication.fullname + '</small>' +
+                                    '<p>' + (v.message ? v.message : "") + '</p>' +
+                                    '<div class="check-div">' +
+                                    '<i class="fa fa-check ' + (v.inboxMessage.reading == 1 ? "read-check-i" : "unread-check-i") + '"></i>' +
+                                    '</div>' +
+                                    '<time>' + v.createDate + '</time>' +
+                                    '</div>' +
+                                    '</li>' 
+                            } else {
+                                html += '<li class="self">' +
+                                    '<div class="avatar"><img src="'+Communication.urls.AdminRest+ 'users/' + userId+ '/image?token=' + Communication.token + '" draggable="false" alt="" class="img-circle" onError="this.src=\'./assets/img/user.svg\'"/></div>' +
+                                    '<div class="msg">' +
+                                    '<small>' + Communication.fullname + '</small>' +
+                                    '<p class="chat-img"><img src="'+ Communication.urls.Chat + '/conversation/message/image/200x200?token='+ Communication.token + '&guid='+ v.filePath +'"></p>' +
+                                    '<p>' + (v.message ? v.message : "") + '</p>' +
+                                    '<div class="check-div">' +
+                                    '<i class="fa fa-check ' + (v.inboxMessage.reading == 1 ? "read-check-i" : "unread-check-i") + '"></i>' +
+                                    '</div>' +
+                                    '<time>' + v.createDate + '</time>' +
+                                    '</div>' +
+                                    '</li>' 
+                            }
+                           
+                        } else if (v.inboxMessage.toUser.id == userId) {
+                            if(!v.filePath) {
+                               html += '<li class="other">' +
+                                    '<div class="avatar"><img src="'+Communication.urls.AdminRest+ 'users/' + v.inboxMessage.fromUser.id + '/image?token=' + Communication.token + '" draggable="false" alt="" class="img-circle" onError="this.src=\'./assets/img/user.svg\'"/></div>' +
+                                    '<div class="msg">' +
+                                    '<small>' + v.inboxMessage.fromUser.fullname + '</small>' +
+                                    '<p>' + (v.message ? v.message : "") + '</p>' +
+                                    '<time>' + v.createDate + '</time>' +
+                                    '</div>' +
+                                    '</li>'
+                            } else {
+                                html += '<li class="other">' +
+                                    '<div class="avatar"><img src="'+Communication.urls.AdminRest+ 'users/' + v.inboxMessage.fromUser.id + '/image?token=' + Communication.token + '" draggable="false" alt="" class="img-circle" onError="this.src=\'./assets/img/user.svg\'"/></div>' +
+                                    '<div class="msg">' +
+                                    '<small>' + v.inboxMessage.fromUser.fullname + '</small>' +
+                                    '<p class="chat-img"><img src="'+ Communication.urls.Chat + '/conversation/message/image/200x200?token='+ Communication.token + '&guid='+ v.filePath +'"></p>' +
+                                    '<p>' + (v.message ? v.message : "") + '</p>' +
+                                    '<time>' + v.createDate + '</time>' +
+                                    '</div>' +
+                                    '</li>'
+                            }
+                        }
+                        
+        
+
+                    })
+
+                    $('body .message-content .chat').html(html);
+                    $('body .message-content').scrollTop($('body .message-content').prop('scrollHeight'));
+
+                }
+        });
+        $('body').on('click', '.close-student-search', function(){
+            $('.add-new').css('right', '-100%');
+        });
+//        $('body').on('click', '.close-message-search', function(){
+//            $('.add-new').css('right', '-100%');
+//        });
+
+        //"No information available" message
+//        $(document).ajaxStop(function (e) {
+//            var tabs = $('.tab-content').children();
+//            tabs.each(function (i, v) {
+//                var panels = $(v).children();
+//                panels.each(function (i, v) {
+//                    if ($(v).find('.panel-body').children().length == 0 || ($(v).find('.panel-body').children().length == 1 && $(v).find('.panel-body').children().is('.modal')))
+//                        $(v).find('.panel-body').append('<div class="blank-panel"><h3>'+Communication.dictionary[Communication.lang]['no_information']+'</h3></div>');
+//                });
+//            })
+//        });
+    });
+</script>
+
+
