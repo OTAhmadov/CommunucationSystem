@@ -1133,18 +1133,27 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 .app-con li{
     float: left;
-    padding: 0 15px;
+    padding: 0 10px;
+    width: 109px;
+    line-height: 55px;
+    text-align: center;
+    height: 55px;
 }
 .app-con li a{
-    font-size: 13px;
-    line-height: 89px;
+    /*font-size: 13px;*/
+    /*line-height: 89px;*/
     color: #fff !important;
-    font-family: Arial, Sans-Serif;
-    display: inline-block;
-    height: 100%;
+    /*font-family: Arial, Sans-Serif;*/
+    /*display: inline-block;*/
+    height: auto;
+    position: relative;
+    text-decoration: none !important;
+    vertical-align: middle;
+    text-align: center;
 }
 .app-con li a:hover, .app-con li a:focus{
     text-decoration: underline;

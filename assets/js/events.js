@@ -742,6 +742,30 @@ $(function () {
             console.error(err);
         }
     });
+
+    var width = window.innerWidth;
+    if(width > 1500) {
+        $('.app-list').show();
+    } else {
+        $(document).on('click','.hide-menu',function(e){
+            e.stopPropagation();
+            var display = $(".app-list").css('display');
+            if(display === "none") {
+                $('.app-list').fadeIn();
+            } else{
+                $('.app-list').fadeOut();
+            }
+        });
+
+        $("body").on("click",function() {
+            $('.app-list').hide();
+        });
+    }
+
+    $(".main-img").on("click", function () {
+        $('.user-info').toggleClass("helloWorld");
+    });
+
 });
 
 

@@ -5,7 +5,7 @@
  */
 
 var Communication = {
-    token: '0',
+    // token: 'b2b35e6683f9415e927efe01c998b55c5243f0e59853443e9cdceb2f147c8237',
     lang: 'az',
     appId: 1000013,
     currModule: '',
@@ -298,10 +298,10 @@ var Communication = {
                                 try {
                                     if (data.data) {
                                         var user = data.data;
-                                        $('.profile-data li[data-type="name"]').text(user.person.name + ' ' + user.person.surname + ' ' + user.person.patronymic);
-                                        $('.welcome-text p span').text(user.person.name);
-                                        $('.profile-data li[data-type="role"]').text(user.role.value[Communication.lang]);
-                                        $('.profile-data li[data-type="org"]').text(user.structure.name[Communication.lang]);
+                                        $('.user-notify-content h6[data-type="name"]').text(user.person.name + ' ' + user.person.surname + ' ' + user.person.patronymic);
+                                        // $('.welcome-text p span').text(user.person.name);
+                                        $('.user-notify-content p[data-type="role"]').text(user.role.value[Communication.lang]);
+                                        $('.user-notify-content p[data-type="org"]').text(user.structure.name[Communication.lang]);
                                         $('.side-title-block p').text(user.orgName.value[Communication.lang]);
                                         $('.main-img img').attr('src', Communication.urls.AdminRest + 'users/' + user.id + '/image?token=' + Communication.token);
                                         $('.side-title-block img').attr('src', Communication.urls.HSIS + 'structures/' + user.orgName.id + '/logo?token=' + Communication.token);
@@ -1044,6 +1044,15 @@ var Communication = {
                     $('.app-con').html(html);
                     $('.app-con a[data-id="' + Communication.appId + '"]').parent('li').addClass('active');
                     $('[data-toggle="tooltip"]').tooltip()
+
+                    var moduleListItems = $('body').find('.app-con li');
+                    console.log(moduleListItems)
+                    if (moduleListItems.length > 5) {
+                        $('body').find('div.app-list, .hide-menu').addClass('less-menu')
+                    } else {
+                        $('body').find('div.app-list, .hide-menu').removeClass('less-menu')
+                    }
+
                 })
                 
             }
