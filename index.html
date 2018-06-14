@@ -82,13 +82,11 @@
                                         </button>
                                     </form>
                                 </div>
-
                                 <!-- Tab panes -->
                                 <ul  class="nav nav-pills">
                                     <li class="active ems-tab"><a  href="#1a" data-toggle="tab">Bildirişlər</a></li>
                                     <li class="ems-tab"><a href="#2a" data-toggle="tab">Sazlamalar</a></li>
                                 </ul>
-
                                 <div class="tab-content clearfix">
                                     <div class="tab-pane active " id="1a">
                                         <iframe class="iframe-tab-1" frameborder="0"></iframe>
@@ -97,6 +95,8 @@
                                         <iframe class="setting iframeUpdate" src="http://192.168.1.78:8082/UnibookShared/#/profile-edit?token=2517c747ee0140719ac190e0987286cc2bbd68a724dc4cf9b6cf39f165b6c18c" frameborder="0"></iframe>
                                     </div>
                                 </div>
+
+
                                 <div class="data profile-data">
                                     <ul>
                                         <!--<li data-type="name"></li>
@@ -127,9 +127,6 @@
 
                                         <!--</div>-->
 
-
-
-
                             </div>
 
 
@@ -157,7 +154,7 @@
 
                             <!--<div class="header-arrow"></div>-->
                         </div>
-                        <div id="hide-menu" class="hide-menu less-menu">
+                        <div id="hide-menu" class="hide-menu less-menu hamburger-menu">
                             <i class="glyphicon glyphicon-menu-hamburger"></i>
                         </div>
 
@@ -369,6 +366,16 @@
             var date = new Date();
             var fullDate = dayOfWeekName[date.getDay()] + ', ' + date.getDate()  + ' ' + monthNames[date.getMonth()];
             $('.user-notify-content p[data-type="current-date"] span').text(fullDate);
+
+
+
+            // $('body').find('.hamburger-menu').on('click', function () {
+            //     $('.app-con').stop().toggleClass();
+            // });
+
+
+
+
 
 
         </script>

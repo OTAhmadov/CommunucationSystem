@@ -19714,7 +19714,7 @@ a.fc-more:hover {
     position: absolute;
     right: -500px;
     height: 100vh;
-    top: 55px;
+    top: 50px;
     z-index: 999 !important;
     background-color: white;
     transition: ease-in-out 500ms;
@@ -19728,6 +19728,7 @@ a.fc-more:hover {
     right: 0 !important;
     visibility: visible !important;
     opacity: 1 !important;
+
 }
 
 .content-upper-header .user-info .data {

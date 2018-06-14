@@ -7,7 +7,7 @@ $('document').ready(function() {
     var cancelButton = $('.content-upper-header .cancel');
     var sidebarMenu = $('.sidebar.menu');
     var contentMainHeader = $('.content-main-header');
- var setb = $('.content-upper-header .settings-button'
+    var setb = $('.content-upper-header .settings-button');
 
     // userInfo.addClass('hidden');
 

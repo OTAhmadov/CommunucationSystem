@@ -1137,11 +1137,12 @@
 }
 .app-con li{
     float: left;
-    padding: 0 10px;
-    width: 109px;
-    line-height: 55px;
+    /*padding: 0 10px;*/
+    /*width: 109px;*/
+    line-height: 50px;
     text-align: center;
-    height: 55px;
+    margin-right: 20px;
+    height: 50px;
 }
 .app-con li a{
     /*font-size: 13px;*/

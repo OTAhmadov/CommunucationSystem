@@ -34,12 +34,12 @@
 
 
 header.header-upd{
-	height: 55px;
+	height: 50px;
 	background-color: #338bf8;
 }
 .logo-upd{
 	display: inline-block;
-	padding: 19px 0 0 0;
+	padding: 17px 0 0 0;
 }
 .logo-upd img{
 	height: 21px;
@@ -56,7 +56,7 @@ header.header-upd{
   width: 30px;
   height: 30px;
   border: solid 3px #ffffff;
-  margin: 13px 0 0 0;
+  margin: 11px 0 0 0;
   float: left
 }
 .content-upper-header .main-img img{
@@ -110,11 +110,11 @@ main.main-upd{
 .sidebar-upd{
 	height: calc(100vh - 70px);
 	background-color: #ffffff;
-	border: solid 1px #ece9fa;
+	/*border: solid 1px #ece9fa;*/
 }
 .main-content-upd{
 	height: calc(100vh - 70px);
-	padding-top: 10px;
+	padding-top: 7px;
 }
 .col-sm-3 + .slimScrollDiv, .content-part{
 	height: calc(100vh - 70px) !important;
@@ -126,21 +126,23 @@ main.main-upd{
 .app-list{
 	float: right;
 	position: static;
-	margin-right: 10px;
+	/*margin-right: 10px;*/
 
 }
 .app-con li a{
-	font: 14px/15px 'HelveticaNeue',sans-serif;
+	font: 12px/15px 'HelveticaNeue',sans-serif;
 	position: relative;
 	text-decoration: none !important
 }
-.app-con li a:hover:before, .app-con li a:hover:before, .app-con li.active a:before{
+.app-con li a:hover:before,
+.app-con li a:hover:before,
+.app-con li.active a:before{
 	content: '';
 	display: block;
 	position: absolute;
 	width: 100%;
 	left: 0;
-	bottom: 0;
+	bottom: -18px;
 	z-index: 2;
 	height: 3px;
 	background: #fff;
@@ -362,12 +364,12 @@ main.main-upd{
 }
 .content-header{
 	border-radius: 6px;
-	    background-color: #ffffff;
-	    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.08);
-	    padding: 29px 30px 29px;
-	    display: inline-block;
-	    width: 100%;
-	    margin-bottom: 10px;
+	background-color: #ffffff;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.08);
+	padding: 19px 30px 19px;
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 5px;
 }
 .con-head-left{
 	float: left;
@@ -443,8 +445,8 @@ main.main-upd{
 	height: 17.5px;
 }
 .prepend-icon input{
-	width: 293px;
-	height: 38px;
+	width: 220px;
+	height: 32px;
 	border-radius: 100px;
 	background-color: #f3f5f9;
 	padding: 0 40px 0 16px;
@@ -473,7 +475,7 @@ main.main-upd{
 	padding: 10px 5px;
 	width: 100%;
 	display: inline-block;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 .filters-block .btn-group{
 	display: block;
@@ -1411,8 +1413,8 @@ h3[data-i18n="main_info"] + .save-button.edit-common-info{
 .table-scroll{
 	background: none !important;
 	overflow: hidden;
-	-webkit-border-radius: 6px 6px 0 0;
-	border-radius: 6px 6px 0 0; 
+	/*-webkit-border-radius: 6px 6px 0 0;*/
+	/*border-radius: 6px 6px 0 0; */
 	box-shadow: none;
 }
 .table-scroll table{
@@ -1544,7 +1546,7 @@ h3[data-i18n="main_info"] + .save-button.edit-common-info{
     font: 600 14px/15px 'HelveticaNeue',sans-serif;
     letter-spacing: -0.1px;
     text-align: left;
-    color: #6b7897 !important;
+    color: #000 !important;
     padding: 0 16px !important;
 }
 .info .panel-heading{
@@ -1886,7 +1888,7 @@ h5 a:hover, h5 a:focus{
 	padding-right: 0;
 }
 .slimScrollDiv{
-	padding-left: 10px;
+	padding-left: 8px;
 	padding-right: 0;
 }
 .content-part{
@@ -1898,8 +1900,8 @@ h5 a:hover, h5 a:focus{
 .hide-menu{
 	display: none;
 	float: right;
-	width: 34px;
-	margin-top: 20px;
+	width: 24px;
+	margin-top: 18px;
 }
 .hide-menu i{
 	color: #fff;
@@ -1918,6 +1920,7 @@ h5 a:hover, h5 a:focus{
 		line-height: 0;
 		float: none;
 		padding: 10px 15px;
+		margin-right: 0;
 		text-align: center;
 		margin-top: 10px;
 		width: 200px;
@@ -1925,11 +1928,11 @@ h5 a:hover, h5 a:focus{
 	div.app-list.less-menu ul.app-con{
 		background: #338bf8;
 		position: fixed;
-		right: 60px;
+		right: 45px;
 		z-index: 999;
 		display: flex;
 		flex-direction: column;
-		top: 75px;
+		top: 55px;
 		height: auto;
 	}
 	div.app-list.less-menu ul.app-con li:last-child{
@@ -2051,6 +2054,7 @@ h5 a:hover, h5 a:focus{
 	text-align: center;
 	border-radius: 0 !important;
 	color: #fff !important;
+	height: 50px;
 }
 li.ems-tab.active>a,li.ems-tab.active>a:hover, li.ems-tab.active>a:focus{
 	background-color: #338bf8;
@@ -2118,4 +2122,13 @@ li.ems-tab.active>a,li.ems-tab.active>a:hover, li.ems-tab.active>a:focus{
 	top: 25px;
 	height: 50px;
 	left: 32px;
+}
+.panel-white{
+	border-radius: 15px;
+}
+.con-head-left{
+	margin-top: 3px;
+}
+.sdie-c{
+	top: 0!important;
 }

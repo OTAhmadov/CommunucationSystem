@@ -5,7 +5,7 @@
  */
 
 var Communication = {
-    // token: 'fa5df1dab9734b52b88f986e5dfad327010d2868c20e4954a6aaa782bdf908d9',
+    token: '97660b9379144e3b8553d7fb748fed45b7e87af2cf2548d6be635b6e5d44a1f4',
     lang: 'az',
     appId: 1000013,
     currModule: '',
